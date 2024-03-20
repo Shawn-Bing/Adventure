@@ -6,18 +6,30 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerInputController inputControl;
-    //PIC是自定义的输入系统名，iC是别名，此时可以在Player脚本里调用IC变量
-
     public Vector2 inputDirection;
-    private Rigidbody2D rb;//私有实例化刚体组件
-    public float speedScale;//公开速度
+    private Rigidbody2D rb;
+    public float speedScale;
 
     //为了实现移动功能撰写的函数
     public void Movement()
     {
-        //修改组件速度,x轴速度 = x轴方向 * 自己设置的速度变量
-        //y轴等于原来速度就可以（实际上等于全局设置的重力）
+        //移动
         rb.velocity = new Vector2(inputDirection.x * speedScale, rb.velocity.y);
+
+        //翻转
+        //直接修改transform组件里的x轴方向即可
+
+        //定义一个玩家朝向变量，让向左移动时这个变量为负，向右时为正
+        int playerDir = (int)transform.localScale.x;
+        if(inputDirection.x < 0) playerDir = -1;
+        if(inputDirection.x > 0) playerDir = 1;
+
+        //if(inputDirection.x == 0) playerDir = 0;
+            //如果加一个这个判断，会让玩家在x轴丢失碰撞体积
+
+        //else playerDir = 1;
+            //如果改为这种判断，因为放开移动键位之后inputDirection默认为0，所以只要松开移动按键就会回到朝向右边
+        transform.localScale = new Vector3(playerDir,1,1);
     }
 
     //Awake是C#最初执行的函数
