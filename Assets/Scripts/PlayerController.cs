@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 inputDirection;
 
     private Rigidbody2D rb;
+    private PhysicsDetection physicsDetection;
 
     [Header("基本参数")]
     public float speedScale;
@@ -27,12 +28,18 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump(InputAction.CallbackContext context)
     {
-        rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+        //检测是否在地面，若是，允许跳跃
+        if(physicsDetection.isGround)
+        {
+            rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+        }
     }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        //获取物理检测
+        physicsDetection = GetComponent<PhysicsDetection>();
         inputControl = new PlayerInputController();
         inputControl.GamePlay.Jump.started += Jump;
     }

@@ -756,6 +756,8 @@ GameObject:
   - component: {fileID: 727047696}
   - component: {fileID: 727047698}
   - component: {fileID: 727047699}
+  - component: {fileID: 727047700}
+  - component: {fileID: 727047701}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -823,7 +825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727047693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -866,7 +868,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 727047693}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 228827388b57441cdbd12c4daa3cc85d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -937,6 +939,45 @@ MonoBehaviour:
   inputDirection: {x: 0, y: 0}
   speedScale: 8
   JumpForce: 16.5
+--- !u!114 &727047700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727047693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39ee20669692486282fd7d31fd4c5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRadius: 0.2
+  bottomOffset: {x: -0.1, y: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isGround: 0
+--- !u!95 &727047701
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727047693}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3020c86e39add4838befa98eebe3f528, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1239767019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1937,7 @@ Tilemap:
       - {fileID: 1206970547, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
       - {fileID: -1833121762, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
       - {fileID: 1383733462, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 3, z: 0}
@@ -3913,7 +3954,7 @@ GameObject:
   - component: {fileID: 1835197672}
   - component: {fileID: 1835197671}
   - component: {fileID: 1835197670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
