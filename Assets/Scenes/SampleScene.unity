@@ -755,9 +755,10 @@ GameObject:
   - component: {fileID: 727047697}
   - component: {fileID: 727047696}
   - component: {fileID: 727047698}
+  - component: {fileID: 727047701}
   - component: {fileID: 727047699}
   - component: {fileID: 727047700}
-  - component: {fileID: 727047701}
+  - component: {fileID: 727047702}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -978,6 +979,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &727047702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727047693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb9340cc7aef459c91771d3d5959999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1239767019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1950,7 @@ Tilemap:
       - {fileID: 1206970547, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
       - {fileID: -1833121762, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
       - {fileID: 1383733462, guid: 02f31cc3a1d31bb4e80f4fba5c1dac25, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 3, z: 0}
