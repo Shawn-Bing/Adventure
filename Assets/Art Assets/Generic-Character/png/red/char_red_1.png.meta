@@ -569,7 +569,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_1-1
+      name: char_red_jump_prep-1
       rect:
         serializedVersion: 2
         x: 0
@@ -590,7 +590,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_1-2
+      name: char_red_jump_prep-2
       rect:
         serializedVersion: 2
         x: 56
@@ -611,7 +611,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_2-1
+      name: char_red_jump_flying-1
       rect:
         serializedVersion: 2
         x: 112
@@ -632,7 +632,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_2-2
+      name: char_red_jump_flying-2
       rect:
         serializedVersion: 2
         x: 168
@@ -653,7 +653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_2-3
+      name: char_red_jump_flying-3
       rect:
         serializedVersion: 2
         x: 224
@@ -674,7 +674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_2-4
+      name: char_red_jump_flying-4
       rect:
         serializedVersion: 2
         x: 280
@@ -695,7 +695,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_3-1
+      name: char_red_jump_reload-1
       rect:
         serializedVersion: 2
         x: 336
@@ -716,7 +716,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_3-2
+      name: char_red_jump_reload-2
       rect:
         serializedVersion: 2
         x: 392
@@ -737,7 +737,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_3-3
+      name: char_red_jump_reload-3
       rect:
         serializedVersion: 2
         x: 0
@@ -758,7 +758,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_4-1
+      name: char_red_jump_fall-1
       rect:
         serializedVersion: 2
         x: 56
@@ -779,7 +779,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_4-2
+      name: char_red_jump_fall-2
       rect:
         serializedVersion: 2
         x: 112
@@ -800,7 +800,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_4-3
+      name: char_red_jump_fall-3
       rect:
         serializedVersion: 2
         x: 168
@@ -821,7 +821,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_4-4
+      name: char_red_jump_fall-4
       rect:
         serializedVersion: 2
         x: 224
@@ -842,7 +842,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_5-1
+      name: char_red_land_1
       rect:
         serializedVersion: 2
         x: 280
@@ -863,7 +863,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_5-2
+      name: char_red_land_2
       rect:
         serializedVersion: 2
         x: 336
@@ -884,7 +884,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_red_jump_5-3
+      name: char_red_land_3
       rect:
         serializedVersion: 2
         x: 392
@@ -1597,22 +1597,22 @@ TextureImporter:
       char_red_1_7: -204907130
       char_red_1_8: 805336219
       char_red_1_9: -1664797190
-      char_red_jump_1-1: -168560885
-      char_red_jump_1-2: 1272020803
-      char_red_jump_2-1: -425009872
-      char_red_jump_2-2: -481160603
-      char_red_jump_2-3: 1259835841
-      char_red_jump_2-4: -1639767857
-      char_red_jump_3-1: 665574423
-      char_red_jump_3-2: -1530132153
-      char_red_jump_3-3: 1914936214
-      char_red_jump_4-1: 967798835
-      char_red_jump_4-2: 1888749907
-      char_red_jump_4-3: -949039061
-      char_red_jump_4-4: -1640674766
-      char_red_jump_5-1: -1044276296
-      char_red_jump_5-2: -1407063758
-      char_red_jump_5-3: -1923683118
+      char_red_jump_fall-1: 967798835
+      char_red_jump_fall-2: 1888749907
+      char_red_jump_fall-3: -949039061
+      char_red_jump_fall-4: -1640674766
+      char_red_jump_flying-1: -425009872
+      char_red_jump_flying-2: -481160603
+      char_red_jump_flying-3: 1259835841
+      char_red_jump_flying-4: -1639767857
+      char_red_jump_prep-1: -168560885
+      char_red_jump_prep-2: 1272020803
+      char_red_jump_reload-1: 665574423
+      char_red_jump_reload-2: -1530132153
+      char_red_jump_reload-3: 1914936214
+      char_red_land_1: -1407063758
+      char_red_land_2: -1923683118
+      char_red_land_3: 967798835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
