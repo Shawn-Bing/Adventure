@@ -16,9 +16,8 @@ public class PlayerController : MonoBehaviour
     public float speedScale;
     public float JumpForce;
 
-    //用来存放速度的变量
-    private float runSpeed;
-    private float sneakSpeed => speedScale/2.5f;
+    //用来暂存速度的变量
+    private float currentSpeed;
 
     public void Movement()
     {
@@ -49,18 +48,19 @@ public class PlayerController : MonoBehaviour
         inputControl.GamePlay.Jump.started += Jump;
 
         #region 潜行键
-        //获取Speed
-        runSpeed = speedScale;
-        //绑定潜行按键
+        //暂存Speed
+        currentSpeed = speedScale;
+        //修改速度并绑定到潜行键
         inputControl.GamePlay.Sneak.performed += ctx =>
         {
             if(physicsDetection.isGround)
-            speedScale = sneakSpeed;
+            speedScale = currentSpeed/2.5f;
         };
+        //松开键位后速度回正
         inputControl.GamePlay.Sneak.canceled += ctx =>
         {
             if(physicsDetection.isGround)
-            speedScale = runSpeed;
+            speedScale = currentSpeed;
         };
         #endregion
         
