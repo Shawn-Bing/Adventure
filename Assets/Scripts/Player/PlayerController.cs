@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float speedScale;
     public float JumpForce;
     private float currentSpeed;
+    public bool isCrouch;//存放下蹲状态
 
     public void Movement()
     {
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
         if (inputDirection.x < 0) playerDir = -1;
         if (inputDirection.x > 0) playerDir = 1;
         transform.localScale = new Vector3(playerDir, 1, 1);
+        //Crouch
+        isCrouch = physicsDetection.isGround && inputDirection.y < -0.1f;//在地面，且垂直速度为负（按了下方向键）
+        
     }
     private void Jump(InputAction.CallbackContext context)
     {
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
         inputControl = new PlayerInputController();
         //绑定Jump函数到Jump按键按下
         inputControl.GamePlay.Jump.started += Jump;
+
 
         #region 潜行键
         //暂存Speed
