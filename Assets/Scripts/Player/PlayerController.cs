@@ -6,17 +6,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    #region 创建类实例
+
     public PlayerInputController inputControl;
     public Vector2 inputDirection;
 
     private Rigidbody2D rb;
     private PhysicsDetection physicsDetection;
 
+    #endregion
+
     [Header("基本参数")]
     public float speedScale;
     public float JumpForce;
-
-    //用来暂存速度的变量
     private float currentSpeed;
 
     public void Movement()
