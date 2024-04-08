@@ -14,17 +14,20 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private PhysicsDetection physicsDetection;
     private CapsuleCollider2D cpsCld2D;
+    private PlayerAnimation plrAnim;
 
     #endregion
 
     [Header("基本参数")]
     public float speedScale;
-    public float JumpForce;
     private float currentSpeed;
+    public float JumpForce;
+    public float HurtForce;//设置击退的力，Michele：8
+    [Header("状态")]
     public bool isCrouch;//存放下蹲状态
     public bool isHurt;//存放受伤状态
-    public bool isDead;//存放死亡变量
-    public float HurtForce;//设置击退的力，Michele：8
+    public bool isDead;//存放死亡状态
+    public bool isAttack;//存放攻击状态
 
     //保存原始Size&Offset的变量
     private Vector2 originCapsuleCollider2DSize;
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    #region UnityEvent
     //实现受击后退
     public void GetHurt(Transform attacker)
     {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
         isDead = true;//使玩家死亡状态为真
         inputControl.GamePlay.Disable();//禁用玩家游玩操作
     }
+    #endregion
 
     private void Awake()
     {
@@ -90,12 +95,14 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         physicsDetection = GetComponent<PhysicsDetection>();
         cpsCld2D = GetComponent<CapsuleCollider2D>();
-
+        plrAnim = GetComponent<PlayerAnimation>();
         inputControl = new PlayerInputController();
         #endregion
 
-        //绑定Jump函数到Jump按键按下
-        inputControl.GamePlay.Jump.started += Jump;
+        #region 绑定按键
+        inputControl.GamePlay.Jump.started += Jump;//绑定Jump函数到Jump按键按下
+        inputControl.GamePlay.Attack.started += PlayerAttack;//绑定攻击键&PlayerAttack方法
+        #endregion
 
 
         #region 潜行键
@@ -119,6 +126,14 @@ public class PlayerController : MonoBehaviour
         originCapsuleCollider2DSize = cpsCld2D.size;
         originCapsuleCollider2DOffset = cpsCld2D.offset;
     }
+
+    //实现玩家攻击
+    private void PlayerAttack(InputAction.CallbackContext context)
+    {
+        isAttack = true;//使攻击为真
+        plrAnim.PlayAttack();//直接调用函数播放动画，不用Events
+    }
+
     private void OnEnable()
     {
         inputControl.Enable();

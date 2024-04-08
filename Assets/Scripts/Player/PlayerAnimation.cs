@@ -18,12 +18,18 @@ public class PlayerAnimation : MonoBehaviour
         ani.SetBool("isGround",phsicDtc.isGround);//获取物理检测中地面监测
         ani.SetBool("isCrouch",plrCtl.isCrouch);
         ani.SetBool("isDead",plrCtl.isDead);//绑定死亡动画
+        ani.SetBool("isAttack",plrCtl.isAttack);//绑定攻击动画
     }
     
     //绑定受伤动画和切换条件，调用此函数时会播放该动画
     public void PlayHurt()
     {
         ani.SetTrigger("hurt");
+    }
+    //绑定攻击动画触发器，调用此函数时会触发触发器
+    public void PlayAttack()
+    {
+        ani.SetTrigger("attack");
     }
 
     //获取对应组件
