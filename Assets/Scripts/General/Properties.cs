@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Properties : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Properties : MonoBehaviour
     public float invulnerableDuration;//无敌时间，这个值在引擎中设置
     private float invulnerableCounter;//计时器，将Duration量化为引擎时间
     public bool isInvulnerable;//检测是否无敌
+
+    public UnityEvent<Transform> OnHurted;
     
     //开启无敌
     private void Invulnerable()
@@ -45,9 +48,15 @@ public class Properties : MonoBehaviour
         {
             currentHealth -= attacker.attackDamage;//若收到伤害，开启无敌
             Invulnerable();
+            
+            //执行受伤的各种函数方法，传递进来攻击者的transform组件（为了确定受击方向和实现受击后退）
+            OnHurted?.Invoke(attacker.transform);
+
         }else{
             //血量小于攻击伤害值，使其为0
             currentHealth = 0;
+            
+            //执行死亡的各种函数方法
         }
         
     }

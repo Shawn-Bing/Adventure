@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.OSX;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class PlayerAnimation : MonoBehaviour
         ani.SetFloat("velocityY",rb.velocity.y);//不用去掉负值
         ani.SetBool("isGround",phsicDtc.isGround);//获取物理检测中地面监测
         ani.SetBool("isCrouch",plrCtl.isCrouch);
+    }
+    
+    //绑定受伤动画和切换条件，调用此函数时会播放该动画
+    public void PlayHurt()
+    {
+        ani.SetTrigger("hurt");
     }
 
     //获取对应组件
