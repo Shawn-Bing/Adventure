@@ -16,7 +16,8 @@ public class Properties : MonoBehaviour
     private float invulnerableCounter;//计时器，将Duration量化为引擎时间
     public bool isInvulnerable;//检测是否无敌
 
-    public UnityEvent<Transform> OnHurted;
+    public UnityEvent<Transform> OnHurted;//创建受伤事件
+    public UnityEvent OnDie;//创建死亡事件
     
     //开启无敌
     private void Invulnerable()
@@ -57,6 +58,7 @@ public class Properties : MonoBehaviour
             currentHealth = 0;
             
             //执行死亡的各种函数方法
+            OnDie?.Invoke();
         }
         
     }

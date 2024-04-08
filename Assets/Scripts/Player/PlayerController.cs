@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed;
     public bool isCrouch;//存放下蹲状态
     public bool isHurt;//存放受伤状态
+    public bool isDead;//存放死亡变量
     public float HurtForce;//设置击退的力，Michele：8
 
     //保存原始Size&Offset的变量
@@ -76,6 +77,13 @@ public class PlayerController : MonoBehaviour
         //添加一个（击退方向*击退力）
         rb.AddForce(HurtForce * hurtDir,ForceMode2D.Impulse);
     }
+    //实现玩家死亡
+    public void PlayerDead()
+    {
+        isDead = true;//使玩家死亡状态为真
+        inputControl.GamePlay.Disable();//禁用玩家游玩操作
+    }
+
     private void Awake()
     {
         #region 获取组件
