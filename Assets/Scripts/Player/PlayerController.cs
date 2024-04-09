@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public bool isHurt;//存放受伤状态
     public bool isDead;//存放死亡状态
     public bool isAttack;//存放攻击状态
+    [Header("材质")]
+    public PhysicsMaterial2D normal;//玩家在地面的材质
+    public PhysicsMaterial2D smooth;//玩家在空中的材质
 
     //保存原始Size&Offset的变量
     private Vector2 originCapsuleCollider2DSize;
@@ -67,7 +70,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     #region UnityEvent
     //实现受击后退
     public void GetHurt(Transform attacker)
@@ -88,6 +90,20 @@ public class PlayerController : MonoBehaviour
         inputControl.GamePlay.Disable();//禁用玩家游玩操作
     }
     #endregion
+
+    //实现玩家攻击
+    private void PlayerAttack(InputAction.CallbackContext context)
+    {
+        isAttack = true;//使攻击为真
+        plrAnim.PlayAttack();//直接调用函数播放动画，不用Events
+    }
+
+    //设置玩家物理材质
+    private void SetPlayerMaterial()
+    {
+        //若isGround为真，则设置为normal材质，否则设为smooth材质
+        cpsCld2D.sharedMaterial = physicsDetection.isGround?normal:smooth;
+    }
 
     private void Awake()
     {
@@ -127,13 +143,6 @@ public class PlayerController : MonoBehaviour
         originCapsuleCollider2DOffset = cpsCld2D.offset;
     }
 
-    //实现玩家攻击
-    private void PlayerAttack(InputAction.CallbackContext context)
-    {
-        isAttack = true;//使攻击为真
-        plrAnim.PlayAttack();//直接调用函数播放动画，不用Events
-    }
-
     private void OnEnable()
     {
         inputControl.Enable();
@@ -145,11 +154,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         inputDirection = inputControl.GamePlay.Move.ReadValue<Vector2>();
+        SetPlayerMaterial();//需要持续检测
     }
     private void FixedUpdate()
     {
-        //若受伤，冻结玩家移动
-        if(!isHurt)
+        //若受伤或在攻击，冻结玩家移动
+        if(!isHurt && !isAttack)
         {
             Movement();
         }
